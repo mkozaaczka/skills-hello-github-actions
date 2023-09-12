@@ -2,7 +2,7 @@ name: Post welcome comment
 on:
   pull_request:
     types: [opened]
-permissions: 
+permissions:
   pull-requests: write
 jobs:
   build:
@@ -11,7 +11,7 @@ jobs:
     steps:
       - run: gh pr comment $PR_URL --body "Welcome to the repository!"
         env:
-          GITHUB_TOKEN: ${{ secrects.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_URL: ${{ github.event.pull_request.html_url }}
           
   
